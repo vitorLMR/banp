@@ -17,7 +17,7 @@ import { AuthGuard } from './domain/guards/authGuard.guard';
         return {
           global: true,
           secret: configService.get('PASSWORD_SECRET'),
-          signOptions: { expiresIn: '60s' },
+          signOptions: { expiresIn: '2d' },
         };
       },
     }),
@@ -33,7 +33,7 @@ import { AuthGuard } from './domain/guards/authGuard.guard';
         return {
           global: true,
           secret: configService.get('PASSWORD_SECRET'),
-          signOptions: { expiresIn: '60s' },
+          signOptions: { expiresIn: '2d' },
         };
       },
     }),

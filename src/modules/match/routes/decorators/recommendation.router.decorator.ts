@@ -3,11 +3,15 @@ import BaseDecorator from 'src/core/routes/base.decorator';
 
 class RecommendationRouterDefinition extends BaseDecorator {
   public constructor() {
-    super({ name: 'Recommendation', route: 'recommendation' });
+    super({ name: 'Match', route: 'match' });
   }
 
   public base() {
-    return applyDecorators(this.controller());
+    return applyDecorators(this.controller(), this.login());
+  }
+
+  public recommendation() {
+    return applyDecorators(this.controller('recommendation'), this.login());
   }
 
   public question() {

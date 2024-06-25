@@ -1,6 +1,6 @@
 import { Get } from '@nestjs/common';
 import RecommendationRouter from '../decorators/recommendation.router.decorator';
-import RecommendationService from '../../services/providers/recommendation.service';
+import RecommendationService from '../../services/recommendation.service';
 
 @RecommendationRouter.question()
 export default class QuestionRecommendationController {

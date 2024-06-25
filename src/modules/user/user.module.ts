@@ -7,13 +7,13 @@ import UserSignupRepository from './domain/repositories/user-signup.repository';
 import UserService from './services/user.service';
 import SignupUserController from './routes/controllers/signup.user.controller';
 import GameModule from '../game/game.module';
-import RecommendationModule from '../recommendation/recommendation.module';
+import MatchModule from '../match/match.module';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([User, UserSignup]),
     GameModule,
-    RecommendationModule,
+    MatchModule,
   ],
   providers: [UserRepository, UserSignupRepository, UserService],
   controllers: [SignupUserController],

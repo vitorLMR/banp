@@ -9,7 +9,7 @@ import {
   OneToOne,
 } from 'typeorm';
 import UserSignup from './user-signup.entity';
-import Category from 'src/modules/recommendation/domain/entities/category.entity';
+import Category from 'src/modules/match/domain/entities/category.entity';
 
 @Entity({ name: 'users' })
 export default class User extends BaseEntity {

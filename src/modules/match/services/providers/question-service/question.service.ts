@@ -1,4 +1,4 @@
-import QuestionRepository from 'src/modules/recommendation/domain/repositories/question.repository';
+import QuestionRepository from 'src/modules/match/domain/repositories/question.repository';
 import FindQuestionRecommendationProvider from './providers/find-questions.question.recommendation.provider';
 
 export default class QuestionService {

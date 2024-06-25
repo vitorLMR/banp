@@ -4,7 +4,7 @@ import DatabaseModule from './core/database/database.module';
 import { ScheduleModule } from '@nestjs/schedule';
 import UserModule from './modules/user/user.module';
 import GameModule from './modules/game/game.module';
-import RecommendationModule from './modules/recommendation/recommendation.module';
+import MatchModule from './modules/match/match.module';
 import AuthModule from './modules/auth/auth.module';
 
 @Module({
@@ -13,7 +13,7 @@ import AuthModule from './modules/auth/auth.module';
     DatabaseModule,
     UserModule,
     GameModule,
-    RecommendationModule,
+    MatchModule,
     AuthModule,
   ],
 })

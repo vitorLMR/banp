@@ -5,7 +5,7 @@ import ValidateSignupUserProvider from './providers/validate-signup.user.provide
 import SignupUserProvider from './providers/signup.user.provider';
 import UserRepository from '../domain/repositories/user.repository';
 import GameRepository from 'src/modules/game/domain/repositories/game.repository';
-import AnswerRepository from 'src/modules/recommendation/domain/repositories/answer.repository';
+import AnswerRepository from 'src/modules/match/domain/repositories/answer.repository';
 
 @Injectable()
 export default class UserService {

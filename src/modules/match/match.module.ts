@@ -6,8 +6,9 @@ import Answer from './domain/entities/answer.entity';
 import AnswerRepository from './domain/repositories/answer.repository';
 import Category from './domain/entities/category.entity';
 import CategoryRepository from './domain/repositories/category.repository';
-import RecommendationService from './services/providers/recommendation.service';
+import RecommendationService from './services/recommendation.service';
 import QuestionRecommendationController from './routes/controllers/question.recommendation.controller';
+import BaseRecommendationController from './routes/controllers/recommendation.recommendation.controller';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Question, Answer, Category])],
@@ -17,7 +18,7 @@ import QuestionRecommendationController from './routes/controllers/question.reco
     CategoryRepository,
     RecommendationService,
   ],
-  controllers: [QuestionRecommendationController],
+  controllers: [QuestionRecommendationController, BaseRecommendationController],
   exports: [CategoryRepository, AnswerRepository],
 })
-export default class RecommendationModule {}
+export default class MatchModule {}

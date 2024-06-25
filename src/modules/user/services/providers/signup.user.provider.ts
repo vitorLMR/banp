@@ -4,8 +4,8 @@ import UserSignupRepository from '../../domain/repositories/user-signup.reposito
 import UserRepository from '../../domain/repositories/user.repository';
 import GameRepository from 'src/modules/game/domain/repositories/game.repository';
 import { In } from 'typeorm';
-import AnswerRepository from 'src/modules/recommendation/domain/repositories/answer.repository';
-import Category from 'src/modules/recommendation/domain/entities/category.entity';
+import AnswerRepository from 'src/modules/match/domain/repositories/answer.repository';
+import Category from 'src/modules/match/domain/entities/category.entity';
 import UserSignup from '../../domain/entities/user-signup.entity';
 import Game from 'src/modules/game/domain/entities/game.entity';
 import User from '../../domain/entities/user.entity';

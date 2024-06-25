@@ -31,6 +31,7 @@ export class AuthGuard implements CanActivate {
         where: {
           id: payload.id,
         },
+        relations: ['desire'],
       });
       if (!user) {
         throw Error('Unauthorized');
