@@ -94,7 +94,7 @@ export default class SignupUserProvider {
     const user = new User();
     user.name = dto.name;
     user.email = dto.email;
-    user.image = '';
+    user.image = dto.image;
     user.discord = dto.discord;
     user.gender = dto.gender as 'M' | 'F';
     user.birthDate = new Date(dto.birthDate);
