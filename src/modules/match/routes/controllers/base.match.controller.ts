@@ -13,7 +13,7 @@ export default class MatchRecommendationController {
   @Post('/:user_id')
   public async find(
     @AuthUser() user: User,
-    @Query() response: EMatchResponse,
+    @Query('response') response: EMatchResponse,
     @Param('user_id') userId: number,
   ) {
     return await this.service.responseMatch.execute(user, userId, response);

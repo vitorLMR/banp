@@ -27,6 +27,9 @@ export default class User extends BaseEntity {
   @Column({ name: 'image' })
   public image: string;
 
+  @Column({ name: 'discord', nullable: true })
+  public discord: string;
+
   @Column({ name: 'birth_date' })
   public birthDate: Date;
 

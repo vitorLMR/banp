@@ -95,6 +95,7 @@ export default class SignupUserProvider {
     user.name = dto.name;
     user.email = dto.email;
     user.image = '';
+    user.discord = dto.discord;
     user.birthDate = new Date(dto.birthDate);
     user.password = await crypt(dto.password);
     user.signupCredentials = userSignup;

@@ -21,6 +21,12 @@ export default class SignupUserDTO {
   @IsNotEmpty()
   public name: string;
 
+  @ApiProperty({ name: 'discord' })
+  @Expose({ name: 'discord' })
+  @IsString()
+  @IsNotEmpty()
+  public discord: string;
+
   @ApiProperty({ name: 'email' })
   @Expose({ name: 'email' })
   @IsString()
