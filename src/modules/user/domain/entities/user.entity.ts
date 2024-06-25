@@ -27,6 +27,9 @@ export default class User extends BaseEntity {
   @Column({ name: 'image' })
   public image: string;
 
+  @Column({ name: 'gender', enum: ['M', 'F'], default: 'M' })
+  public gender: 'M' | 'F';
+
   @Column({ name: 'discord', nullable: true })
   public discord: string;
 
