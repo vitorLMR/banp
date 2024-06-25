@@ -1,5 +1,6 @@
-import { Controller, applyDecorators } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { Controller, UseGuards, applyDecorators } from '@nestjs/common';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { AuthGuard } from 'src/modules/auth/domain/guards/authGuard.guard';
 
 export default abstract class BaseDecorator {
   private name: string;
@@ -14,5 +15,9 @@ export default abstract class BaseDecorator {
   protected controller(suffix?: string) {
     const route = suffix ? `${this.route}/${suffix}` : this.route;
     return applyDecorators(Controller(route), ApiTags(this.name));
+  }
+
+  protected login() {
+    return applyDecorators(UseGuards(AuthGuard), ApiBearerAuth());
   }
 }

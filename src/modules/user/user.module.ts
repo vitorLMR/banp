@@ -17,6 +17,6 @@ import RecommendationModule from '../recommendation/recommendation.module';
   ],
   providers: [UserRepository, UserSignupRepository, UserService],
   controllers: [SignupUserController],
-  exports: [UserService],
+  exports: [UserService, UserRepository],
 })
 export default class UserModule {}

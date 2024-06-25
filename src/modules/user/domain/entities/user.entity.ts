@@ -16,10 +16,10 @@ export default class User extends BaseEntity {
   @Column({ name: 'name' })
   public name: string;
 
-  @Column({ name: 'email' })
+  @Column({ name: 'email', unique: true })
   public email: string;
 
-  @Column({ name: 'password' })
+  @Column({ name: 'password', select: false })
   public password: string;
 
   @Column({ name: 'image' })
