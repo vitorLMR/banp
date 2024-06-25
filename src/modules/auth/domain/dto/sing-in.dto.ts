@@ -6,9 +6,4 @@ export default class SignInDTO {
   @IsString()
   @IsNotEmpty()
   public email: string;
-
-  @ApiProperty({ name: 'password' })
-  @IsString()
-  @IsNotEmpty()
-  public password: string;
 }
