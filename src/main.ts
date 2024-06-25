@@ -7,7 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.setGlobalPrefix('api');
   const config = new DocumentBuilder()
-    .setTitle('NeoAnalytics')
+    .setTitle('Banp')
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, config);
