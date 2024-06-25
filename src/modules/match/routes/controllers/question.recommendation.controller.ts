@@ -1,10 +1,10 @@
 import { Get } from '@nestjs/common';
 import RecommendationRouter from '../decorators/recommendation.router.decorator';
-import RecommendationService from '../../services/recommendation.service';
+import MatchService from '../../services/match.service';
 
 @RecommendationRouter.question()
 export default class QuestionRecommendationController {
-  public constructor(private readonly service: RecommendationService) {}
+  public constructor(private readonly service: MatchService) {}
 
   @Get('')
   public async find() {

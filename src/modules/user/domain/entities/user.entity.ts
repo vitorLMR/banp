@@ -6,10 +6,12 @@ import {
   JoinColumn,
   JoinTable,
   ManyToMany,
+  OneToMany,
   OneToOne,
 } from 'typeorm';
 import UserSignup from './user-signup.entity';
 import Category from 'src/modules/match/domain/entities/category.entity';
+import Match from 'src/modules/match/domain/entities/match.entity';
 
 @Entity({ name: 'users' })
 export default class User extends BaseEntity {
@@ -85,4 +87,10 @@ export default class User extends BaseEntity {
     },
   })
   public desire: Category[];
+
+  @OneToMany(() => Match, (match) => match.user)
+  public userMatch: Match[];
+
+  @OneToMany(() => Match, (match) => match.userMeeting)
+  public userMeetingMatch: Match[];
 }
