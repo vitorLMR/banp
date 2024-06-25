@@ -1,7 +1,6 @@
 import UserRepository from 'src/modules/user/domain/repositories/user.repository';
 import SignInDTO from '../../domain/dto/sing-in.dto';
 import { HttpException } from '@nestjs/common';
-import { compareCrypt } from 'src/core/utils/crypt';
 import { JwtService } from '@nestjs/jwt';
 
 export default class SignInAuthProvider {
@@ -12,9 +11,9 @@ export default class SignInAuthProvider {
 
   public async execute(dto: SignInDTO) {
     const user = await this.findUser(dto.email);
-    if (!(await compareCrypt(user.password, dto.password))) {
-      throw new HttpException('Senha incorreta', 401);
-    }
+    // if (!(await compareCrypt(user.password, dto.password))) {
+    //   throw new HttpException('Senha incorreta', 401);
+    // }
     const payload = { id: user.id };
 
     return {
@@ -28,7 +27,6 @@ export default class SignInAuthProvider {
         email,
       },
       select: {
-        password: true,
         email: true,
         id: true,
       },
