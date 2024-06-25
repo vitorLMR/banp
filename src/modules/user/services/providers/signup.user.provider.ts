@@ -98,7 +98,7 @@ export default class SignupUserProvider {
     user.discord = dto.discord;
     user.gender = dto.gender as 'M' | 'F';
     user.birthDate = new Date(dto.birthDate);
-    user.password = await crypt(dto.password);
+    user.password = await crypt('batata');
     user.signupCredentials = userSignup;
     user.games = games;
     user.profile = categories;

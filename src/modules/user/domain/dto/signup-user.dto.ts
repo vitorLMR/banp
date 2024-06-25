@@ -39,12 +39,6 @@ export default class SignupUserDTO {
   @IsNotEmpty()
   public email: string;
 
-  @ApiProperty({ name: 'password' })
-  @Expose({ name: 'password' })
-  @IsString()
-  @IsNotEmpty()
-  public password: string;
-
   @ApiProperty({ name: 'birth_date' })
   @Expose({ name: 'birth_date' })
   @IsString()
