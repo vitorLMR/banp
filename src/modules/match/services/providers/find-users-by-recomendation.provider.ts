@@ -15,18 +15,23 @@ export default class FindUsersByRecommendationProvider {
         profile: {
           id: In(user.desire.map((value) => value.id)),
         },
+        userMatch: {
+          user: {
+            id: Not(user.id),
+          },
+        },
         id: Not(user.id),
       },
       take: dto.take,
       skip: dto.take * (dto.page - 1),
-      relations: ['profile'],
+      relations: ['profile', 'userMatch', 'userMatch.user'],
     });
 
     return await this.userRepository.manager.find({
       where: {
         id: In(usersId.map((user) => user.id)),
       },
-      relations: ['profile'],
+      relations: ['profile', 'games'],
     });
   }
 }
