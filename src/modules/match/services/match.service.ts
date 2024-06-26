@@ -5,12 +5,14 @@ import FindUsersByRecommendationProvider from './providers/find-users-by-recomen
 import UserRepository from 'src/modules/user/domain/repositories/user.repository';
 import ResponseMeetingMatchProvider from './providers/response-meeting.match.provider';
 import MatchRepository from '../domain/repositories/match.repository';
+import FindMatchsByUserProvider from './providers/find-matchs-by-user.provider';
 
 @Injectable()
 export default class MatchService {
   public question: QuestionService;
   public findUsers: FindUsersByRecommendationProvider;
   public responseMatch: ResponseMeetingMatchProvider;
+  public find: FindMatchsByUserProvider;
   public constructor(
     private readonly questionRepository: QuestionRepository,
     private readonly userRepository: UserRepository,
@@ -22,5 +24,6 @@ export default class MatchService {
       this.matchRepository,
       this.userRepository,
     );
+    this.find = new FindMatchsByUserProvider(this.matchRepository);
   }
 }
