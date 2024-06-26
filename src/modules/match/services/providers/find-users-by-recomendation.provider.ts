@@ -8,17 +8,9 @@ export default class FindUsersByRecommendationProvider {
 
   public async execute(user: User, dto: PaginationDTO) {
     const usersId = await this.userRepository.manager.find({
-      select: {
-        id: true,
-      },
       where: {
         profile: {
           id: In(user.desire.map((value) => value.id)),
-        },
-        userMatch: {
-          user: {
-            id: Not(user.id),
-          },
         },
         id: Not(user.id),
       },
@@ -27,9 +19,18 @@ export default class FindUsersByRecommendationProvider {
       relations: ['profile', 'userMatch', 'userMatch.user'],
     });
 
+    const ids = await Promise.all(
+      usersId.reduce((prev, current) => {
+        if (!current.userMatch.find((value) => value.user.id == user.id)) {
+          prev.push(current);
+        }
+        return prev;
+      }, [] as User[]),
+    );
+
     return await this.userRepository.manager.find({
       where: {
-        id: In(usersId.map((user) => user.id)),
+        id: In(ids.map((user) => user.id)),
       },
       relations: ['profile', 'games'],
     });
