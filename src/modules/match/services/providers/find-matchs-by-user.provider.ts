@@ -14,6 +14,7 @@ export default class FindMatchsByUserProvider {
       },
       take: dto.take,
       skip: dto.take * (dto.page - 1),
+      relations: ['user'],
     });
   }
 }
